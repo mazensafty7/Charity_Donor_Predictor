@@ -47,38 +47,42 @@ Key insights for individuals earning more than $50K:
 - Used one-hot encoding for categorical data.
 - Split data into training and testing sets.
 
-### 5. Model Selection and Tuning
-Three machine learning models were tested and tuned:
+### 5. KMeans Clustering
+To improve model accuracy, KMeans clustering was applied to group the data into clusters, and a new column indicating cluster membership was created. The **Elbow Method** was used to identify the optimal number of clusters, with **4 clusters** selected as the best choice. This improved both accuracy and F1 scores across all models.
+
+### 6. Model Selection and Tuning
+Four machine learning models were tested and tuned:
 
 #### Decision Tree
-- **Training Accuracy**: 85.23%
-- **Test Accuracy**: 85.17%
+- **Training Accuracy**: 88.97%
+- **Test Accuracy**: 89.08%
 - **Best Parameters**: `max_depth=6`, `min_samples_leaf=6`, `min_samples_split=2`.
 
-#### AdaBoost
-- **Training Accuracy**: 87.71%
-- **Test Accuracy**: 87.22%
-- **F1 Score (Train)**: 72.43%
-- **F1 Score (Test)**: 71.89%
+#### AdaBoost (Best Model)
+- **Training Accuracy**: 90.79%
+- **Test Accuracy**: 90.47%
+- **F1 Score (Train)**: 79.87%
+- **F1 Score (Test)**: 79.76%
 - **Best Parameters**: `'learning_rate': [0.3]`, `'n_estimators': [18]`, `'base_estimator': DecisionTreeClassifier`, `max_depth=6`, `min_samples_leaf=6`, `min_samples_split=2`.
 
 #### SVM (Poly Kernel)
-- **Training Accuracy**: 84.77%
-- **Test Accuracy**: 84.31%
+- **Training Accuracy**: 88.05%
+- **Test Accuracy**: 87.73%
 - **Best Parameters**: `C=0.7`, `kernel='poly'`, `degree=3`, `random_state=42`.
 
 #### SVM (RBF Kernel with Grid Search)
-- **Best Parameters**: `C=1`, `kernel='rbf'`, `gamma=0.1`.
-- **Training Accuracy**: 84.42%
-- **Test Accuracy**: 84.01%
-- **F1 Score (Train)**: 64.39%
-- **F1 Score (Test)**: 64.08%.
+- **Training Accuracy**: 89.50%
+- **Test Accuracy**: 88.04%
+- **F1 Score (Train)**: 77.07%
+- **F1 Score (Test)**: 74.02%
+- **Best Parameters**: `C=1`, `kernel='rbf'`, `gamma=0.4`.
 
-### 6. Final Model Selection
+### 7. Final Model Selection
 The **AdaBoost** model was chosen as the best-performing model for this dataset, achieving the highest accuracy and F1 scores.
 
 ## Technologies Used
 - **Data Analysis and Visualization**: Pandas, Numpy, Matplotlib, Seaborn
 - **Data Preprocessing**: Handling missing data, Min-Max Scaler, One-hot Encoding
 - **Machine Learning**: Decision Tree, AdaBoost, SVM (Poly and RBF kernels)
+- **Clustering**: KMeans for data segmentation
 - **Model Evaluation**: Cross-validation, GridSearch, Model tuning
