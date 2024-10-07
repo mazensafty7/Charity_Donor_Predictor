@@ -2,8 +2,6 @@
 
 The **Charity Donor Predictor** project aims to predict whether individuals earn more than $50K annually, assisting charities in identifying potential donors. By leveraging various machine learning models, the project analyzes demographic and financial data to build an efficient prediction system.
 
-![0_ODzYjDiFGRih9iRX](https://github.com/user-attachments/assets/3367723a-83aa-487e-bbfc-e33f77989c68)
-
 ## Project Workflow
 
 ### 1. Data Exploration (EDA)
@@ -25,7 +23,7 @@ Key insights for individuals earning more than $50K:
 - **Average age**: 44.
 - **Most common work class**: Private; least common: Without-pay (2 individuals, likely retirees).
   - These individuals were aged 50 and 55.
-  - Their characteristics: 
+  - Their characteristics:
     - Relationship: Husband and Own-child.
     - Education level: HS-grad.
     - Marital status: Married-cv-spous.
@@ -77,7 +75,21 @@ Four machine learning models were tested and tuned:
 - **F1 Score (Test)**: 74.02%
 - **Best Parameters**: `C=1`, `kernel='rbf'`, `gamma=0.4`.
 
-### 7. Final Model Selection
+### 7. Precision and F-Beta Score Considerations
+Since the dataset is imbalanced, with fewer individuals earning more than $50K compared to those earning less, **precision** was prioritized to ensure that predictions of potential high-earning donors were accurate.
+
+To give more weight to precision, I calculated the **F-Beta score** with a beta value of 0.5, which emphasizes precision over recall. Below are the results for the **AdaBoost** model, which was the best-performing model:
+
+- **Training Accuracy**: 90.79%
+- **Test Accuracy**: 90.47%
+- **Training F1 Score**: 79.87%
+- **Test F1 Score**: 79.76%
+- **Training F-Beta Score (β = 0.5)**: 83.72%
+- **Test F-Beta Score (β = 0.5)**: 83.79%
+
+These scores indicate that the model not only performs well in terms of overall accuracy but also balances precision and recall effectively, especially in predicting individuals likely to earn more than $50K.
+
+### 8. Final Model Selection
 The **AdaBoost** model was chosen as the best-performing model for this dataset, achieving the highest accuracy and F1 scores.
 
 ## Technologies Used
