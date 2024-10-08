@@ -1,5 +1,7 @@
 # Charity Donor Predictor and Insights
 
+![0_ODzYjDiFGRih9iRX](https://github.com/user-attachments/assets/3367723a-83aa-487e-bbfc-e33f77989c68)
+
 The **Charity Donor Predictor** project aims to predict whether individuals earn more than $50K annually, assisting charities in identifying potential donors. By leveraging various machine learning models, the project analyzes demographic and financial data to build an efficient prediction system.
 
 ## Project Workflow
